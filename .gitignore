@@ -13,3 +13,6 @@ notebooks/
 
 # Environments
 venv/
+
+# Dev
+twittos/dev.*
