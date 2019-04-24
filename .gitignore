@@ -1,0 +1,15 @@
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pycharm
+.idea/
+
+# Jupyter Notebook
+notebooks/
+.ipynb_checkpoints
+
+# Environments
+venv/
