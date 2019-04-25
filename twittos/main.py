@@ -18,16 +18,22 @@ class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):
         # print(status.__dict__)
         doc = dict()
+        doc['RT'] = False
         if hasattr(status, 'retweeted_status'):
             try:
                 doc['text'] = status.retweeted_status.extended_tweet["full_text"]
             except AttributeError:
                 doc['text'] = status.retweeted_status.text
+            doc['RT'] = True
         else:
             try:
                 doc['text'] = status.extended_tweet["full_text"]
+                if doc['text'].startswith('RT'):
+                    doc['RT'] = True
             except AttributeError:
                 doc['text'] = status.text
+                if doc['text'].startswith('RT'):
+                    doc['RT'] = True
         doc['id_str'] = status.id_str
         doc['created_at'] = status.created_at
         doc['lang'] = status.lang
