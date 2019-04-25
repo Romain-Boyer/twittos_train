@@ -16,3 +16,6 @@ venv/
 
 # Dev
 twittos/dev.*
+
+# Credentials
+twittos/credentials_twitter.py
